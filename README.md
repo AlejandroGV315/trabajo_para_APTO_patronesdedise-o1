@@ -53,7 +53,7 @@ Por tanto, los patrones de diseño no suelen definir la arquitectura completa de
 
 Por tnto, los patrones de diseño pertenecen sobre todo al diseño y a la microarquitectura del software.
 
-## 1er PATRÓN --> Patrón creacional: Factory Method
+# 1er PATRÓN --> Patrón creacional: Factory Method
 
 Es un patrón creacional, es decir, relacionado con la creación de objetos.
 
@@ -77,4 +77,40 @@ Por ejemplo, si en el futuro se quiere añadir un nuevo tipo de usuario, como "i
 # Cuándo utilizarlo
 
 Principalmente cuando el programa necesita crear distintos tipos de objetos pero no quieres que el código principal dependa de clases concretas o si quieres entralizar la lógica de creación.
+
+# Resumen de ejepmlos 1 y 2
+
+En estos dos ejemplos se aplica el patrón Factory Method en dos situaciones diferentes.
+
+1er EJEMPLO --> En el primer ejemplo se usa para crear distintos tipos de usuarios dentro de una biblioteca. El programa tiene una clase general llamada Usuario y varias clases concretas: Alumno, Profesor y Bibliotecario. Cada una representa un tipo de usuario distinto y tiene permisos diferentes. 
+La clase UsuarioFactory se encarga de crear el usuario correcto según el tipo que se le indique. Asñí, el programa no tiene que crear una clase directamente
+
+2º EJEMPLO --> Usé Factory Method para crear distintos tipos de notificaciones. 
+- La biblioteca puede enviar avisos por email, SMS o WhatsApp.
+
+Para eso se crea una clase general llamada "Notificacion" y varias clases concretas  (NotificacionEmail, NotificacionSMS y NotificacionWhatsApp)
+La clase NotificacionFactory decide el  tipo de notificación se crea según el valor que recibe.
+
+# 2º PATRÓN --> Patrón de comportamiento: Strategy
+
+El segundo patrón que he eñegido es Strategy. Este patrón pertenece al grupo de patrones de comportamiento porque no se centra tanto en crear objetos, sino en organizar cómo actúan esos objetos dentro del programa.
+
+El objetivo principal de Strategy es separar distintas formas de hacer una misma tarea. En lugar de meter toda la lógica en una función llena de condiciones, crea una clase para cada forma de resolver el problema y asi el el programa puede elegir qué estrategia usar según la situación.
+
+Esto es útil cuando una aplicación puede realizar una operación de varias maneras. Por ejemplo, en una biblioteca se puede calcular una multa de forma diferente dependiendo del tipo de usuario. Un alumno puede pagar una cantidad normal por cada día de retraso, un profesor puede pagar menos y un bibliotecario puede no pagar multa. Si todo eso se metiera en una sola función con muchos if, el codigo seria mucho mas complejo. En cambio con Strategy cada cálculo de multa queda separado en su propia clase. Strategy también facilita ampliar el programa por ejemplo si en adelante quiero añadir otro tipo de multa, no habría que modificar toda la clase principal y bastaría con crear una nueva estrategia.
+
+# Resumen de los ejemplos de Strategy
+
+En estos 2 ejemplos uso el patrón Strategy en dos situaciones diferentes dentro de una biblioteca.
+
+- En el primer ejemplo para calcular multas por retraso en la devolución de libros.
+
+La clase principal se llama Prestamo, pero esta clase no calcula directamente la multa suno que recibe una estrategia concreta según el tipo de usuario. 
+Por ejemplo, un alumno paga una multa normal, un profesor paga una multa más baja y otro tipo de usuario puede no pagar multa. Gracias a esto, el cálculo de la multa no está mezclado dentro de una sola función con muchos "if", sino que cada forma de calcularla está separada en una clase diferente.
+
+- En el segundo ejemplo para ordenar libros dentro del catálogo de la biblioteca.
+
+El programa puede ordenar los libros de varias formas (título, año, autor...). En vez de crear una función enorme con todas las posibilidades, se crea una estrategia distinta para cada criterio de ordenación oudiendo así el catálogo ¡ cambiar la forma de ordenar los libros sin modificar el código principal.
+
+En ambos, Strategy deja eEl programa  más limpio, porque cada comportamiento está en su propia clase. Además, si en el futuro se quiere añadir una nueva forma de calcular multas o una nueva forma de ordenar libros, se puede crear una nueva estrategia sin tener que cambiar demasiado el resto del programa.
 
