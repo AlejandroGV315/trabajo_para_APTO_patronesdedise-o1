@@ -114,3 +114,18 @@ El programa puede ordenar los libros de varias formas (título, año, autor...).
 
 En ambos, Strategy deja eEl programa  más limpio, porque cada comportamiento está en su propia clase. Además, si en el futuro se quiere añadir una nueva forma de calcular multas o una nueva forma de ordenar libros, se puede crear una nueva estrategia sin tener que cambiar demasiado el resto del programa.
 
+# Conclusión final
+
+En este trabajo he explicado e implementado dos patrones de diseño: 
+
+- Factory Method
+- Strategy
+
+Ambos ayudan a organizar mejor el código, aunque cada uno se utiliza para resolver un problema diferente.
+
+- Factory Method es un patrón creacional centrado en la creación de objetos.Gracias a este patrón, el programa principal no tiene que crear directamente cada objeto concreto, sino que delega esa tarea en una clase fábrica. Esto hace que el código quede más ordenado y sea más fácil añadir nuevos tipos en el futuro.
+
+- Strategy, por otro lado, es un patrón de comportamiento que separa distintas formas de hacer una misma tarea. En vez de meter muchas condiciones dentro de una sola función, cada comportamiento se coloca en una clase diferente. Así, el programa puede cambiar de estrategia sin modificar demasiado la clase principal.
+
+Después de hacer los ejemplos he entendido que os patrosnes resuelven problemas y ayudan a que el programa sea más fácil de entender, mantener y ampliar. 
+
